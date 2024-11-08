@@ -11,18 +11,18 @@ use StsGamingGroup\KafkaBundle\Command\Traits\DescribeTrait;
 use StsGamingGroup\KafkaBundle\Configuration\ConfigurationResolver;
 use StsGamingGroup\KafkaBundle\Configuration\RawConfiguration;
 use StsGamingGroup\KafkaBundle\Traits\AddConfigurationsToCommandTrait;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(name: 'kafka:consumers:consume')]
 class ConsumeCommand extends Command
 {
     use AddConfigurationsToCommandTrait;
     use DescribeTrait;
-
-    protected static $defaultName = 'kafka:consumers:consume';
 
     private RawConfiguration $rawConfiguration;
     private ConsumerProvider $consumerProvider;

@@ -7,16 +7,16 @@ namespace StsGamingGroup\KafkaBundle\Command;
 use StsGamingGroup\KafkaBundle\Client\Consumer\ConsumerProvider;
 use StsGamingGroup\KafkaBundle\Command\Traits\DescribeTrait;
 use StsGamingGroup\KafkaBundle\Configuration\ConfigurationResolver;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(name: 'kafka:consumers:describe')]
 class ConsumersDescribeCommand extends Command
 {
     use DescribeTrait;
-
-    protected static $defaultName = 'kafka:consumers:describe';
 
     private ConsumerProvider $consumerProvider;
     private ConfigurationResolver $configurationResolver;
